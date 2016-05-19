@@ -3,4 +3,28 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="tab_text_selected">#00B450</color>
+    <color name="white">#FFFFFF</color>
+    <color name="lightgray">#D3D3D3</color>
+    <!-- 翠绿色 -->
+    <color name="cuilv">#00C957</color>
+    <!-- -暗翠绿 -->
+    <color name="ancuilv">#3D9140</color>
+
+    <!-- 胡紫色 -->
+    <color name="huzi">#7755AA</color>
+    <!-- 暗胡紫色 -->
+    <color name="anhuzi">#674A93</color>
+
+    <!-- 深蓝色 -->
+    <color name="shenlan">#6699FF</color>
+    <!-- 暗深蓝色 -->
+    <color name="anshenlan">#3366CC</color>
+    <!-- 土色 -->
+    <color name="tuse">#DD9222</color>
+    <!-- 暗土色 -->
+    <color name="antuse">#936117</color>
+    <color name="title_bar_color">#00A876</color>
+    <color name="mediumred">#AA0000</color>
+    <color name="red">#FF0000</color>
 </resources>

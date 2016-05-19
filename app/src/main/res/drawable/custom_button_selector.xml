@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:state_pressed="false" android:drawable="@mipmap/btn_enroll_normal">
+        <shape android:shape="rectangle">
+            <corners android:radius="10dip" />
+
+        </shape>
+    </item>
+    
+    <item android:state_pressed="true" android:drawable="@mipmap/btn_enroll_pressed">
+        <shape android:shape="rectangle">
+            <corners android:radius="10dip" />
+        </shape>
+    </item>
+</selector>

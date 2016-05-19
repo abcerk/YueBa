@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <include layout="@layout/include_title_bar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:padding="15dp" >
+
+        <TextView
+            android:id="@+id/tv_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="账号:"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/edt_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_account"
+            android:layout_marginTop="7dip"
+            android:background="@android:drawable/edit_text"
+            android:hint="手机号码"
+            android:inputType="text"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/tv_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edt_account"
+            android:layout_marginTop="10dip"
+            android:text="密码:"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/edt_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_password"
+            android:layout_marginTop="7dip"
+            android:background="@android:drawable/edit_text"
+            android:hint="登录密码"
+            android:inputType="textPassword"
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edt_password"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/custom_button_selector"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:text="登  录" />
+    </RelativeLayout>
+
+</LinearLayout>
