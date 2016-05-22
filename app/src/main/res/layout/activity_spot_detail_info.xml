@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#DFDFDF"
+        android:orientation="vertical" >
+
+        <include layout="@layout/include_title_bar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <com.yueba.widget.ImageScrollView
+                android:id="@+id/image_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+            <TextView
+                android:id="@+id/tv_spot_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="-40dp"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:padding="5dp" >
+
+            <TextView
+                android:id="@+id/tv_spot_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:text="￥750"
+                android:textColor="@color/tomato"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/tv_delete_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_spot_price"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="-15dp"
+                android:layout_toRightOf="@+id/tv_spot_price"
+                android:text="￥850"
+                android:textColor="#A4A4A4"
+                android:textSize="22dp" />
+
+            <Button
+                android:id="@+id/btn_spot_enroll"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/custom_button_selector"
+                android:padding="5dp"
+                android:text="我要报名"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@color/white"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/layout_spot_guide"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:background="@drawable/view_selcector"
+                android:clickable="true" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:drawableLeft="@mipmap/ic_spot_guide"
+                    android:drawablePadding="10dp"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="景点攻略"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:src="@mipmap/ic_right_arrow" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DFDFDF" />
+
+            <RelativeLayout
+                android:id="@+id/layout_spot_game"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:background="@drawable/view_selcector"
+                android:clickable="true" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:drawableLeft="@mipmap/ic_spot_game"
+                    android:drawablePadding="10dp"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="户外游戏"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:src="@mipmap/ic_right_arrow" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DFDFDF" />
+
+            <RelativeLayout
+                android:id="@+id/layout_spot_enroll_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:background="@drawable/view_selcector"
+                android:clickable="true" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:drawableLeft="@mipmap/ic_spot_info"
+                    android:drawablePadding="10dp"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="旅友分布"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:src="@mipmap/ic_right_arrow" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DFDFDF" />
+
+            <RelativeLayout
+                android:id="@+id/layout_spot_chatroom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:background="@drawable/view_selcector"
+                android:clickable="true" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:drawableLeft="@mipmap/ic_spot_chat"
+                    android:drawablePadding="10dp"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="畅所欲言"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:src="@mipmap/ic_right_arrow" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- 用户评价条 -->
+
+        <RelativeLayout
+            android:id="@+id/layout_spot_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/view_selcector"
+            android:clickable="true"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp" >
+
+            <RatingBar
+                android:id="@+id/rb_spot_comment_average_rate"
+                style="@style/custom_rating_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:max="5"
+                android:progress="5" />
+
+            <TextView
+                android:id="@+id/tv_spot_average_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/rb_spot_comment_average_rate"
+                android:text="5.0分"
+                android:textColor="#A4A4A4" />
+
+            <TextView
+                android:id="@+id/tv_spot_detail_comment_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/right_arrow"
+                android:text="645人评价"
+                android:textColor="#A4A4A4" />
+
+            <ImageView
+                android:id="@+id/right_arrow"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:src="@mipmap/ic_right_arrow" />
+        </RelativeLayout>
+
+        <!-- 电话咨询 -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/white"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp" >
+
+            <TextView
+                android:id="@+id/tv_spot_phone_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="咨询电话：13888888888"
+                android:textSize="15sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_toLeftOf="@+id/iv_spot_call_phone"
+                android:background="#DFDFDF" />
+
+            <ImageView
+                android:id="@+id/iv_spot_call_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:src="@mipmap/ic_call_phone" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

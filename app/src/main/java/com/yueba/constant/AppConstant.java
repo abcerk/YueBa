@@ -6,4 +6,5 @@ package com.yueba.constant;
 public class AppConstant {
 
     public static final String BMOB_KEY = "1c9f9f6be740a3c6f67724a8547a7d8b";
+    public static final String BMOB_SMS_TEMPLATE = "yueba";
 }

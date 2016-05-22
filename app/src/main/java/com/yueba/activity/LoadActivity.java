@@ -47,11 +47,13 @@ public class LoadActivity extends Activity {
 
                 if (isLogin) {
                     startActivity(new Intent(LoadActivity.this, MainActivity.class));
+                    LoadActivity.this.finish();
                 } else {
                     LoadActivity.this.finish();
                     Intent intent = new Intent(LoadActivity.this,
                             LoginActivity.class);
                     startActivity(intent);
+                    LoadActivity.this.finish();
                 }
 
             }

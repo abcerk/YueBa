@@ -27,4 +27,5 @@
     <color name="title_bar_color">#00A876</color>
     <color name="mediumred">#AA0000</color>
     <color name="red">#FF0000</color>
+    <color name="tomato">#FF6347</color>
 </resources>
