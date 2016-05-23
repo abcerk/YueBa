@@ -18,8 +18,6 @@ public class User extends BmobUser implements Serializable{
 	private String school; // 学校名字
 	private BmobFile avatar; //用户头像
 	private String gender;  //性别
-	private String birthday; // 生日
-	private String hometown; // 家乡
 	private String signature; // 个性签名
 	private String relationship; // 恋爱状态
 	private BmobRelation userDynamics;  //用户动态
@@ -117,23 +115,6 @@ public class User extends BmobUser implements Serializable{
 
 	public void setSchool(String school) {
 		this.school = school;
-	}
-
-	public String getBirthday() {
-		return birthday;
-	}
-
-	public void setBirthday(String birthday) {
-		this.birthday = birthday;
-	}
-
-
-	public String getHometown() {
-		return hometown;
-	}
-
-	public void setHometown(String hometown) {
-		this.hometown = hometown;
 	}
 
 	public String getSignature() {

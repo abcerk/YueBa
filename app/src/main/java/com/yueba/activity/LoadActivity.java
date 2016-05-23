@@ -10,7 +10,10 @@ import android.widget.ImageView;
 
 import com.yueba.R;
 import com.yueba.constant.SharePreferenceConstant;
+import com.yueba.entity.User;
 import com.yueba.utils.ShareProUtil;
+
+import cn.bmob.v3.BmobUser;
 
 public class LoadActivity extends Activity {
 
@@ -23,8 +26,8 @@ public class LoadActivity extends Activity {
 
         setContentView(R.layout.activity_load);
         //判断用户是否登录
-        //TODO:这里只是简单存储判断用户登录   应该根据服务器返回的用户登录cookie是否有效来判断
-        isLogin = ShareProUtil.getInstance(this).getBooleanValue(SharePreferenceConstant.IS_LOGIN, false);
+        isLogin = BmobUser.getCurrentUser(this) != null &&
+                ShareProUtil.getInstance(this).getBooleanValue(SharePreferenceConstant.IS_LOGIN, false);
         mLoadImage = (ImageView) findViewById(R.id.id_load_image);
         AlphaAnimation animation = new AlphaAnimation(0.5f, 1.0f);
         animation.setDuration(2000);

@@ -97,20 +97,20 @@ public class SpotDetailInfoActivity extends BaseActivity implements View.OnClick
 //                RongIM.getInstance().startChatroom(SpotDetailInfoActivity.this, spotInfo.getObjectId(), spotInfo.getSpotName()+"聊天室");
                 break;
             case R.id.layout_spot_enroll_info:
-//                intent = new Intent(SpotDetailInfoActivity.this, EnrollUserDistributionActivity.class);
+                intent = new Intent(SpotDetailInfoActivity.this, EnrollUserDistributionActivity.class);
                 startActivity(intent);
                 break;
             case R.id.layout_spot_guide:
-//                intent = new Intent(SpotDetailInfoActivity.this, SpotGuideActivity.class);
+                intent = new Intent(SpotDetailInfoActivity.this, SpotGuideActivity.class);
                 startActivity(intent);
                 break;
             case R.id.layout_spot_game:
-//                intent = new Intent(SpotDetailInfoActivity.this, SpotGameActivity.class);
+                intent = new Intent(SpotDetailInfoActivity.this, SpotGameActivity.class);
                 startActivity(intent);
                 break;
 
             case R.id.btn_spot_enroll:
-//                intent = new Intent(SpotDetailInfoActivity.this, PaymentOrderActivity.class);
+                intent = new Intent(SpotDetailInfoActivity.this, OrderPaymentActivity.class);
                 startActivity(intent);
                 break;
         }

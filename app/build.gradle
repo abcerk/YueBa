@@ -4,9 +4,6 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
 
-    //**兼容Android6.0系统所需，如果这句话报错，可将其导入到libs文件夹下面**
-    useLibrary 'org.apache.http.legacy'
-
     defaultConfig {
         applicationId "com.yueba"
         minSdkVersion 14
@@ -42,4 +39,6 @@ dependencies {
     compile 'cn.bmob.android:bmob-sms:1.0.1'
     //image-loader
     compile group: 'com.nostra13.universalimageloader', name: 'universal-image-loader', version: '1.9.5'
+    //MPchart
+    compile 'com.github.PhilJay:MPAndroidChart:v2.2.4'
 }
