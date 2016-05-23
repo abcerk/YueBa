@@ -19,23 +19,29 @@ import com.yueba.R;
 import com.yueba.base.BaseActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EnrollUserDistributionActivity extends BaseActivity {
 
     private HorizontalBarChart mBarChart;
     private BarData mBarData;
-    private ValueFormatter f = new ValueFormatter() {
+    private YAxisValueFormatter yf = new YAxisValueFormatter() {
 
         @Override
-        public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
+        public String getFormattedValue(float value, YAxis yAxis) {
             return (int)value+"";
         }
 
     };
+    private ValueFormatter vf = new ValueFormatter() {
+        @Override
+        public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
+            return (int)value+"";
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enroll_user_distribution);
 
@@ -64,9 +70,9 @@ public class EnrollUserDistributionActivity extends BaseActivity {
 
         //设置显示数字为整数
         YAxis yr = barChart.getAxisRight();
-        yr.setValueFormatter((YAxisValueFormatter) f);
+        yr.setValueFormatter(yf);
         YAxis yl = barChart.getAxisLeft();
-        yl.setValueFormatter((YAxisValueFormatter) f);
+        yl.setValueFormatter(yf);
 
         barChart.setDrawBarShadow(true);
         barChart.setData(barData); // 设置数据
@@ -112,12 +118,12 @@ public class EnrollUserDistributionActivity extends BaseActivity {
 
         barDataSet.setColor(Color.rgb(242, 147, 26));
 
-        barDataSet.setValueFormatter(f);
+        barDataSet.setValueFormatter(vf);
 
-        ArrayList<BarDataSet> barDataSets = new ArrayList<BarDataSet>();
+        List<IBarDataSet> barDataSets = new ArrayList<>();
         barDataSets.add(barDataSet); // add the datasets
 
-        BarData barData = new BarData(xValues, (IBarDataSet) barDataSets);
+        BarData barData = new BarData(xValues, barDataSets);
 
         return barData;
     }
