@@ -20,9 +20,11 @@ import android.widget.Toast;
 
 import com.yueba.R;
 import com.yueba.base.BaseActivity;
+import com.yueba.base.MyApplication;
 import com.yueba.constant.AppConstant;
 import com.yueba.constant.SharePreferenceConstant;
 import com.yueba.entity.User;
+import com.yueba.utils.GetTokenUtil;
 import com.yueba.utils.ShareProUtil;
 
 import cn.bmob.sms.BmobSMS;
@@ -30,6 +32,8 @@ import cn.bmob.sms.exception.BmobException;
 import cn.bmob.sms.listener.RequestSMSCodeListener;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.LogInListener;
+import io.rong.imkit.RongIM;
+import io.rong.imlib.RongIMClient;
 
 public class LoginActivity extends BaseActivity implements OnClickListener {
 
@@ -39,6 +43,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
     private String phone;
     private Context context;
     private static final String TAG = "LoginActivity";
+    private String token = "";
     //发送验证码倒计时
     private Handler getCodeHandle = new Handler() {
         @Override
@@ -107,7 +112,27 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 
                     @Override
                     public void done(User user, cn.bmob.v3.exception.BmobException e) {
-                        if(user != null) {
+                        if (user != null) {
+                            final User finalUser = user;
+                            //用户第一次登录则向服务器请求融云IM的token
+                            if (user.getToken() == null || user.getToken().equals("")) {
+                                try {
+                                    new Thread() {
+                                        @Override
+                                        public void run() {
+                                            super.run();
+                                            token = GetTokenUtil.getUserToken(finalUser.getObjectId(), finalUser.getUsername(), "http://file.bmob.cn/M01/6D/7A/oYYBAFVX9FaAG-sVAAAhp7NQ_g8326.jpg");
+//                                            Log.e(TAG, "----token-----" + token);
+                                            //将用户的token保存在bmob服务器
+                                            finalUser.setToken(token);
+                                            finalUser.update(context);
+                                        }
+                                    }.start();
+                                } catch (Exception e1) {
+                                    e1.printStackTrace();
+                                }
+
+                            }
                             context.startActivity(new Intent(context, MainActivity.class));
                             LoginActivity.this.finish();
                             ShareProUtil.getInstance(context).putValue(SharePreferenceConstant.IS_LOGIN, true);
@@ -116,12 +141,10 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
                     }
 
 
-
                 });
 
                 break;
             case R.id.tv_login_get_code: //获取验证码
-                Log.e(TAG, "click");
                 phone = edtLoginPhone.getText().toString();
                 if (!TextUtils.isEmpty(phone)) {
                     if (phone.length() != 11 || phone.charAt(0) != '1') {
@@ -160,5 +183,8 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
         }
 
     }
+
+
+
 
 }

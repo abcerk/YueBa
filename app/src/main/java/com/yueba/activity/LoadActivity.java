@@ -3,17 +3,21 @@ package com.yueba.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.ImageView;
 
 import com.yueba.R;
+import com.yueba.base.MyApplication;
 import com.yueba.constant.SharePreferenceConstant;
 import com.yueba.entity.User;
 import com.yueba.utils.ShareProUtil;
 
 import cn.bmob.v3.BmobUser;
+import io.rong.imkit.RongIM;
+import io.rong.imlib.RongIMClient;
 
 public class LoadActivity extends Activity {
 

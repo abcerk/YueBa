@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <!-- 发布动态昵称时间头像 -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp" >
+
+            <ImageView
+                android:id="@+id/iv_item_squart_avatar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/tv_item_squart_nickname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/iv_item_squart_avatar"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/iv_item_squart_avatar"
+                android:textColor="#216184"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_item_squart_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/iv_item_squart_avatar"
+                android:layout_below="@+id/tv_item_squart_nickname"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/iv_item_squart_avatar"
+                android:textColor="#A4A4A4"
+                android:textSize="12sp" />
+            
+        </RelativeLayout>
+
+        <!-- 动态内容和照片 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" >
+
+            <TextView
+                android:id="@+id/tv_item_squart_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textColor="#5A595A"
+                android:textSize="16sp" />
+
+            <com.yueba.widget.NoScrollGridView
+                android:id="@+id/gv_user_dynamic_images"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:horizontalSpacing="5dp"
+                android:numColumns="4"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="5dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -14,13 +15,21 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.yueba.R;
+import com.yueba.base.MyApplication;
+import com.yueba.entity.User;
 import com.yueba.fragment.HomeFragment;
 import com.yueba.fragment.MessageFragment;
 import com.yueba.fragment.SquartFragment;
 import com.yueba.fragment.UserFragment;
+import com.yueba.utils.GetTokenUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.bmob.v3.BmobUser;
+import io.rong.imkit.RongIM;
+import io.rong.imkit.fragment.ConversationListFragment;
+import io.rong.imlib.RongIMClient;
 
 public class MainActivity extends FragmentActivity implements OnClickListener {
 
@@ -55,7 +64,10 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //连接融云
+        connect(BmobUser.getCurrentUser(this, User.class).getToken());
         initView();
+
     }
 
     private void initView() {
@@ -85,11 +97,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         mFragments = new ArrayList<Fragment>();
         HomeFragment homeFragment = new HomeFragment();
         SquartFragment squartFragment = new SquartFragment();
-        MessageFragment messageFragment = new MessageFragment();
+        MessageFragment conversationFragment = new MessageFragment();
         UserFragment userFragment = new UserFragment();
         mFragments.add(homeFragment);
         mFragments.add(squartFragment);
-        mFragments.add(messageFragment);
+        mFragments.add(conversationFragment);
         mFragments.add(userFragment);
 
         mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
@@ -211,5 +223,52 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         mTextHot.setTextColor(Color.BLACK);
         mTextUser.setTextColor(Color.BLACK);
     }
+
+    /**
+     * 建立与融云服务器的连接
+     *
+     * @param token
+     */
+    private void connect(String token) {
+
+        if (getApplicationInfo().packageName.equals(MyApplication.getCurProcessName(getApplicationContext()))) {
+
+            /**
+             * IMKit SDK调用第二步,建立与服务器的连接
+             */
+            RongIM.connect(token, new RongIMClient.ConnectCallback() {
+
+                /**
+                 * Token 错误，在线上环境下主要是因为 Token 已经过期，您需要向 App Server 重新请求一个新的 Token
+                 */
+                @Override
+                public void onTokenIncorrect() {
+
+                    Log.e("LoginActivity", "--onTokenIncorrect");
+                }
+
+                /**
+                 * 连接融云成功
+                 * @param userid 当前 token
+                 */
+                @Override
+                public void onSuccess(String userid) {
+
+                    Log.e("LoginActivity", "--onSuccess" + userid);
+                }
+
+                /**
+                 * 连接融云失败
+                 * @param errorCode 错误码，可到官网 查看错误码对应的注释
+                 */
+                @Override
+                public void onError(RongIMClient.ErrorCode errorCode) {
+
+                    Log.e("LoginActivity", "--onError" + errorCode);
+                }
+            });
+        }
+    }
+
 
 }

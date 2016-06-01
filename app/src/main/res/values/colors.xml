@@ -28,4 +28,5 @@
     <color name="mediumred">#AA0000</color>
     <color name="red">#FF0000</color>
     <color name="tomato">#FF6347</color>
+    <color name="darkgray">#A9A9A9</color>
 </resources>

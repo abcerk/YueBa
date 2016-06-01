@@ -30,10 +30,6 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.4.0'
     compile 'com.squareup.okio:okio:1.4.0'
     //注:bmob-sdk:3.4.6需要依赖okhttp（2.4.0）、okio（1.4.0），如果需要兼容Android6.0系统，则还需要添加support-v4（23.2.1）及org.apache.http.legacy包，具体可查看下面注释[2]的解释
-    //bmob-push：Bmob的推送包
-    compile 'cn.bmob.android:bmob-push:0.8'
-    //bmob-im：Bmob的即时通讯包，如果想使用即时通讯服务，则添加以下两个包，注意每个版本的im依赖特定版本的bmob-sdk，而bmob-sdk又需要特定的依赖库，具体可以查看下面注释[3]中的对应关系
-    compile 'cn.bmob.android:bmob-im:2.0.4'
     //注：别忘记导入3.4.6的相关依赖包
     //bmob-sms ：Bmob单独为短信服务提供的包
     compile 'cn.bmob.android:bmob-sms:1.0.1'
@@ -41,4 +37,8 @@ dependencies {
     compile group: 'com.nostra13.universalimageloader', name: 'universal-image-loader', version: '1.9.5'
     //MPchart
     compile 'com.github.PhilJay:MPAndroidChart:v2.2.4'
+
+    compile 'commons-codec:commons-codec:1.10'
+
+    compile project(':IMKit')
 }

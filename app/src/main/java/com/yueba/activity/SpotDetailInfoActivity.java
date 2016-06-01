@@ -16,6 +16,9 @@ import com.yueba.widget.ImageScrollView;
 
 import java.util.ArrayList;
 
+import io.rong.imkit.RongIM;
+import io.rong.imlib.model.Conversation;
+
 public class SpotDetailInfoActivity extends BaseActivity implements View.OnClickListener {
     private ImageView mCallPhone;
     private Intent intent;
@@ -94,7 +97,8 @@ public class SpotDetailInfoActivity extends BaseActivity implements View.OnClick
 //                startActivity(intent);
                 break;
             case R.id.layout_spot_chatroom:
-//                RongIM.getInstance().startChatroom(SpotDetailInfoActivity.this, spotInfo.getObjectId(), spotInfo.getSpotName()+"聊天室");
+//                RongIM.getInstance().startConversation(SpotDetailInfoActivity.this, Conversation.ConversationType.CHATROOM, spotInfo.getObjectId(), spotInfo.getSpotName()+"聊天室");
+                RongIM.getInstance().startConversation(this, Conversation.ConversationType.CHATROOM, spotInfo.getObjectId(), spotInfo.getSpotName()+"聊天室");
                 break;
             case R.id.layout_spot_enroll_info:
                 intent = new Intent(SpotDetailInfoActivity.this, EnrollUserDistributionActivity.class);
