@@ -41,6 +41,7 @@
         <activity android:name=".activity.MyOrderActivity" />
         <activity android:name=".activity.SettingCenterActivity" />
         <activity android:name=".activity.FriendsListActivity" />
+        <activity android:name=".activity.MultiPicSelectActivity" />
         <activity
             android:name=".activity.ConversationActivity"
             android:screenOrientation="portrait"
@@ -86,6 +87,7 @@
                     android:scheme="rong" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.PublishDynamicActivity"></activity>
     </application>
 
 </manifest>

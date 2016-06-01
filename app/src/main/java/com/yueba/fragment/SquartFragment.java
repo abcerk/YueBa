@@ -13,9 +13,11 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.yueba.R;
+import com.yueba.activity.PublishDynamicActivity;
 import com.yueba.activity.SpotDetailInfoActivity;
 import com.yueba.adapter.HomeRecyclerAdapter;
 import com.yueba.adapter.SquartRecyclerAdapter;
@@ -27,9 +29,10 @@ import java.util.List;
 
 import cn.bmob.v3.BmobQuery;
 
-public class SquartFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+public class SquartFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener, View.OnClickListener {
 
     private TextView tvTitleName;
+    private ImageButton ibPublishDynamic;
     private RecyclerView recyclerView;
     private SwipeRefreshLayout swipeRefreshLayout;
     private LinearLayoutManager mLayoutManager;
@@ -50,6 +53,8 @@ public class SquartFragment extends Fragment implements SwipeRefreshLayout.OnRef
     private void initView(View view) {
         tvTitleName = (TextView) view.findViewById(R.id.titleText);
         tvTitleName.setText("旅友动态");
+        ibPublishDynamic = (ImageButton) view.findViewById(R.id.rightButton);
+        ibPublishDynamic.setOnClickListener(this);
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(this);
         // 这句话是为了，第一次进入页面的时候显示加载进度条
@@ -104,6 +109,17 @@ public class SquartFragment extends Fragment implements SwipeRefreshLayout.OnRef
                         Log.e("abcerk", arg1 + "");
                     }
                 });
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.rightButton:
+                Intent intent = new Intent(context,
+                        PublishDynamicActivity.class);
+                startActivityForResult(intent, 0);
+                break;
+        }
     }
 
     public class getDataTask extends AsyncTask<Void, Void, List<UserDynamic>> {

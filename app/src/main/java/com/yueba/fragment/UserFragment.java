@@ -75,7 +75,6 @@ public class UserFragment extends Fragment implements View.OnClickListener {
         query.count(getActivity(), UserFans.class, new CountListener() {
             @Override
             public void onSuccess(int count) {
-                // TODO Auto-generated method stub
                 mFansNum.setText(count+"");
             }
             @Override

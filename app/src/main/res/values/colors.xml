@@ -29,4 +29,6 @@
     <color name="red">#FF0000</color>
     <color name="tomato">#FF6347</color>
     <color name="darkgray">#A9A9A9</color>
+    <color name="transparent">#00000000</color>
+    <color name="bule_overlay">#660D92DD</color>
 </resources>
